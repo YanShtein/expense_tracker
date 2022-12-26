@@ -24,11 +24,11 @@ li {
 }
 
 .container {
-  /* height: 100vh; */
+  height: 100vh;
   max-width: 1440px;
   margin: auto;
   display: grid;
-  grid-template-columns: 30% 70%;
+  grid-template-columns: auto auto;
   grid-template-rows: 10% auto auto;
   grid-template-areas: 
     'header header'
@@ -50,7 +50,6 @@ li {
 .header {
   grid-area: header;
   height: 100%;
-  width: 100%;
   text-align: center;
 }
 
@@ -67,6 +66,7 @@ form {
 
 input,
 select {
+  cursor: pointer;
   margin: 5px;
   border: 1px solid black;
   border-radius: 4px;
@@ -74,8 +74,14 @@ select {
   padding: 5px 10px;
 }
 
-button {
+.expense button {
+  font-size: 14px;
+  font-family: inherit;
+  cursor: pointer;
   width: fit-content;
+  display: flex;
+  align-self: center;
+  padding: 10px;
 }
 
 .history {
@@ -85,11 +91,27 @@ button {
 .history_list {
   font-size: 14px;
   height: 100%;
+  width: 380px;
+  padding: 10px;
   overflow-y: scroll;
 }
 
-.history_list span {
-  margin: auto 5px;
+.history-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+}
+
+.title-date {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+}
+
+.amount {
+  width: 60px;
 }
 
 .red {
@@ -106,10 +128,20 @@ button {
 
 .statistics {
   grid-area: statistics;
+  justify-content: space-around;
+  position: relative;
+}
+
+.statistics h4 {
+  position: relative;
+  top: 160px;
+  left: 3px;
+  margin: 0;
+  padding: 0;
 }
 
 .statistics_chart {
-  height: 30%;
+
 }
 
 .statistics_details {
@@ -124,7 +156,7 @@ button {
 
 @media (max-width: 650px) {
   .container {
-    grid-template-columns: auto;
+    grid-template-columns: 100%;
     grid-template-rows: 5% auto auto auto;
     grid-template-areas: 
     'header'

@@ -1,5 +1,5 @@
 import ExpenseForm from "./components/ExpenseForm";
-import History from "./components/History";
+import History from "./components/History/History";
 import Statistics from "./components/Statistics";
 import { AppProvider } from "./components/context/AppContext";
 

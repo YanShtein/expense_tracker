@@ -1,0 +1,3 @@
+// fix date on safari...
+// expense chart
+// reduce categories for chart
