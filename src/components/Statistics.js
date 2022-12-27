@@ -1,9 +1,17 @@
-import { useContext } from "react"
-import { AppContext } from "./context/AppContext"
+import { useContext } from "react";
+import { AppContext } from "./context/AppContext";
 import { PieChart } from 'react-minimal-pie-chart';
 
 export default function Statistics() {
-  const { budget, expenses } = useContext(AppContext);
+  const { budget, expenses, categoryColor } = useContext(AppContext);
+
+  function chartDetails(category) {
+    let categoryName = category;
+    let reducedAmount = expenses
+      .filter(item => item.category === category)
+      .reduce((a, b) => a + b.amount, 0);
+    return [`${categoryName} ${reducedAmount}`];
+  };
 
   let pieChartData = expenses.map(item => {
     return {
@@ -12,8 +20,7 @@ export default function Statistics() {
       key: item.id,
       title: item.category,
     }
-  })
-  console.log(pieChartData)
+  });
 
   return (
     <div className='statistics'>
@@ -26,23 +33,20 @@ export default function Statistics() {
           radius={40}
           labelPosition={80}
           labelStyle={{
-            fontSize: "4px",
+            fontSize: "3px",
             fontColor: "FFFFFA",
           }}
-          />
+        />
       </div>
       <div className='statistics_details'>
         <h3>Chart Details</h3>
         <div className="statistics_details_list">
-          {
-            expenses.map(item => {
-              return (
-                <li key={item.id}>
-                  <span>• {item.category} {item.amount}</span>
-                </li>
-              )
-            })
-          }
+          <li><span style={{color: categoryColor('Shopping')}}>•</span> {chartDetails('Shopping')}$</li>
+          <li><span style={{color: categoryColor('Travel')}}>•</span> {chartDetails('Travel')}$</li>
+          <li><span style={{color: categoryColor('Food')}}>•</span> {chartDetails('Food')}$</li>
+          <li><span style={{color: categoryColor('Health')}}>•</span> {chartDetails('Health')}$</li>
+          <li><span style={{color: categoryColor('Education')}}>•</span> {chartDetails('Education')}$</li>
+          <li><span style={{color: categoryColor('Other')}}>•</span> {chartDetails('Other')}$</li>
         </div>
       </div>
     </div>

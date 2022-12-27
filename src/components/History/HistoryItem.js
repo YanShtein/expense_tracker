@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { AppContext } from "../context/AppContext";
+import { deleteSvg } from '../../svg';
 
 export default function HistoryItem({ id, title, amount, activity, date }) {
   const { dispatch } = useContext(AppContext);
@@ -23,7 +24,7 @@ export default function HistoryItem({ id, title, amount, activity, date }) {
           <span>{date}</span>
         </div>
         <span className="amount">{amount}$</span>
-        <button onClick={() => handleDeleteExpense(id)}>Del</button>
+        <button onClick={() => handleDeleteExpense(id)}>{deleteSvg}</button>
     </div>
   )
 };

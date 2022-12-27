@@ -8,9 +8,9 @@ export default function ExpenseForm() {
   const [category, setCategory] = useState('');
   const [activity, setActivity] = useState();
   const [date, setDate] = useState('');
-  const { dispatch } = useContext(AppContext);
+  const [budget, setBudget] = useState('');
+  const { dispatch, categoryColor } = useContext(AppContext);
   
-
   function onSubmit(e) { 
     e.preventDefault();
     const expense = {
@@ -20,18 +20,41 @@ export default function ExpenseForm() {
       category: category,
       activity: activity,
       date: date,
+      color: categoryColor(category),
     };
 
     dispatch({
       type: 'ADD_EXPENSE',
       payload: expense,
     });
+
+    dispatch({
+      type: 'UPDATE_BUDGET',
+      payload: budget,
+    })
+
+    resetForm();
+  };
+
+  function resetForm() {
+    setTitle('');
+    setAmount('');
+    setActivity('');
+    setCategory('');
+    setDate('');
+    setBudget('');
   };
 
   return (
     <div className="expense">
       <h3>Create Expanse</h3>
       <form onSubmit={onSubmit}>
+        <input 
+          placeholder="Starting Budget" 
+          type="number"
+          value={budget}
+          onChange={e => setBudget(Number(e.target.value))}
+          />
         <input 
           placeholder="Title"
           type="text"

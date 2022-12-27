@@ -17,6 +17,7 @@ code {
 h2, h3, p {
   margin: 0;
   padding: 0;
+  text-align: center;
 }
 
 li {
@@ -88,6 +89,20 @@ select {
   grid-area: history;
 }
 
+.history button {
+  cursor: pointer;
+  background: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+  height: 22px;
+  width: 22px;
+}
+
+.history button:hover {
+  transform: scale(0.9);
+}
+
 .history_list {
   font-size: 14px;
   height: 100%;
@@ -101,13 +116,17 @@ select {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-
+  overflow-wrap: break-word;
 }
 
 .title-date {
   display: flex;
   flex-direction: column;
   width: 200px;
+}
+
+.title-date span:nth-child(2) {
+  color: #aaaaaa;
 }
 
 .amount {
@@ -140,18 +159,21 @@ select {
   padding: 0;
 }
 
-.statistics_chart {
-
-}
-
 .statistics_details {
   height: 70%;
   text-align: center;
 }
 
-.statistics_details_list {
+.statistics_details_list li {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: center;
+}
+
+.statistics_details_list span {
+  font-size: 30px;
+  padding: 0 30px;
+  width: 10px;
 }
 
 @media (max-width: 650px) {

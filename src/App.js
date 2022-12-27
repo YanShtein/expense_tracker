@@ -5,7 +5,6 @@ import { AppProvider } from "./components/context/AppContext";
 
 
 function ExpenseTracker() {
-
   return (
     <div className="container">
       <div className="header">
