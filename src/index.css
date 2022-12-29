@@ -9,106 +9,88 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+h3, p {
+  margin: 0;
+  padding: 10px 0;
+  text-align: left;
+  border-bottom: 2px solid rgb(222, 222, 222);
 }
 
-h2, h3, p {
+h2 {
+  text-align: center;
+  height: 60px;
+}
+
+h4 {
   margin: 0;
   padding: 0;
-  text-align: center;
-}
-
-li {
-  list-style: none;
 }
 
 .container {
-  height: 100vh;
-  max-width: 1440px;
-  margin: auto;
-  display: grid;
-  grid-template-columns: auto auto;
-  grid-template-rows: 10% auto auto;
-  grid-template-areas: 
-    'header header'
-    'statistics expense'
-    'statistics history';
-  gap: 20px;
-}
-
-.expense,
-.history,
-.statistics {
+  /* height: 100vh;
+  width: 100%; */
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  border: 1px solid rgb(222, 222, 222);
-  border-radius: 8px;
-}
-
-.header {
-  grid-area: header;
-  height: 100%;
-  text-align: center;
-}
-
-.expense {
-  grid-area: expense;
-  height: 100%;
   justify-content: center;
 }
 
-form {
+.expense-tracker {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+/*-----Balanace-----*/
+.balance {
+  margin: 60px 0;
   display: flex;
   flex-direction: column;
 }
 
-input,
-select {
-  cursor: pointer;
-  margin: 5px;
-  border: 1px solid black;
-  border-radius: 4px;
-  font-size: 18px;
-  padding: 5px 10px;
+.budget {
+  font-size: 22px;
 }
 
-.expense button {
-  font-size: 14px;
-  font-family: inherit;
-  cursor: pointer;
-  width: fit-content;
+.income-expense {
+  margin-top: 15px;
   display: flex;
-  align-self: center;
-  padding: 10px;
+  flex-direction: row;
+  border-radius: 4px;
+  width: 100%;
+  border: 1px solid rgb(222, 222, 222);
 }
+
+.income-expense div {
+  padding: 17px;
+  text-align: center;
+  width: 100%;
+}
+
+.income-expense div:nth-child(1) {
+  border-right: 1px solid rgb(222, 222, 222);
+}
+
+.red {
+  font-size: 18px;
+  color: red;
+  font-weight: 700;
+}
+
+.green {
+  font-size: 18px;
+  color: green;
+  font-weight: 700;
+}
+
+/*-----History-----*/
 
 .history {
-  grid-area: history;
-}
-
-.history button {
-  cursor: pointer;
-  background: none;
-  border: none;
-  margin: 0;
-  padding: 0;
-  height: 22px;
-  width: 22px;
-}
-
-.history button:hover {
-  transform: scale(0.9);
+  margin-bottom: 60px;
 }
 
 .history_list {
   font-size: 14px;
-  height: 100%;
-  width: 380px;
+  width: 350px;
   padding: 10px;
-  overflow-y: scroll;
 }
 
 .history-item {
@@ -133,57 +115,40 @@ select {
   width: 60px;
 }
 
-.red {
-  font-size: 18px;
-  color: red;
-  font-weight: 700;
-}
-
-.green {
-  font-size: 18px;
-  color: green;
-  font-weight: 700;
-}
-
-.statistics {
-  grid-area: statistics;
-  justify-content: space-around;
-  position: relative;
-}
-
-.statistics h4 {
-  position: relative;
-  top: 160px;
-  left: 3px;
+.history button {
+  cursor: pointer;
+  background: none;
+  border: none;
   margin: 0;
   padding: 0;
+  height: 22px;
+  width: 22px;
 }
 
-.statistics_details {
-  height: 70%;
-  text-align: center;
+.history button:hover {
+  transform: scale(0.9);
 }
 
-.statistics_details_list li {
+/*-----Form-----*/
+
+form {
   display: flex;
-  flex-direction: row;
-  align-items: center;
+  flex-direction: column;
+  margin-top: 20px;
 }
 
-.statistics_details_list span {
-  font-size: 30px;
-  padding: 0 30px;
-  width: 10px;
+input,
+select {
+  cursor: pointer;
+  margin: 5px;
+  border: 1px solid rgb(222, 222, 222);
+  font-size: 18px;
+  padding: 5px 10px;
 }
 
-@media (max-width: 650px) {
-  .container {
-    grid-template-columns: 100%;
-    grid-template-rows: 5% auto auto auto;
-    grid-template-areas: 
-    'header'
-    'expense'
-    'history'
-    'statistics';
-  }
+.add-expense button {
+  font-size: 14px;
+  font-family: inherit;
+  cursor: pointer;
+  padding: 5px;
 }

@@ -1,5 +1,5 @@
 import { createContext, useReducer } from "react";
-import initialState, { categoryColor } from "./initialState";
+import initialState from "./initialState";
 
 const AppReducer = (state, action) => {
   switch (action.type) {
@@ -12,11 +12,6 @@ const AppReducer = (state, action) => {
       return {
         ...state,
         expenses: state.expenses.filter(item => item.id !== action.payload),
-      };
-    case 'UPDATE_BUDGET':
-      return {
-        ...state,
-        budget: action.payload
       };
     default:
       return state;
@@ -32,7 +27,6 @@ export const AppProvider = ({ children }) => {
     <AppContext.Provider value={{
         budget: state.budget,
         expenses: state.expenses,
-        categoryColor,
         dispatch
       }}>
         {children}

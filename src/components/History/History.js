@@ -11,18 +11,7 @@ export default function History() {
       <div className="history_list">
         {
           expenses.length === 0 ? <p>Empty!</p> :
-          expenses.map(item => {
-            return (
-              <HistoryItem 
-                key={item.id}
-                id={item.id}
-                title={item.title}
-                amount={item.amount}
-                activity={item.activity}
-                date={item.date}
-              />
-            )
-          })
+          expenses.map(item => <HistoryItem key={item.id} item={item}/>)
         }
       </div>
     </div>

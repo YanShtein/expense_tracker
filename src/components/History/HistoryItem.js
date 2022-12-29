@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { AppContext } from "../context/AppContext";
 import { deleteSvg } from '../../svg';
 
-export default function HistoryItem({ id, title, amount, activity, date }) {
+export default function HistoryItem({ item }) {
   const { dispatch } = useContext(AppContext);
 
   function handleDeleteExpense(id) {
@@ -13,18 +13,18 @@ export default function HistoryItem({ id, title, amount, activity, date }) {
   };
 
   return (
-    <div className="history-item" key={id}>
+    <div className="history-item" key={item.id}>
         {
-          activity === 'expense' ? 
+          item.activity === 'expense' ? 
             <span className={'red'}>-</span> :
             <span className={'green'}>+</span>
         }
         <div className="title-date">
-          <span>{title}</span>
-          <span>{date}</span>
+          <span>{item.title}</span>
+          <span>{item.date}</span>
         </div>
-        <span className="amount">{amount}$</span>
-        <button onClick={() => handleDeleteExpense(id)}>{deleteSvg}</button>
+        <span className="amount">{item.amount}$</span>
+        <button onClick={() => handleDeleteExpense(item.id)}>{deleteSvg}</button>
     </div>
   )
 };
