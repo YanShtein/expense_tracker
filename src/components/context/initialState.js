@@ -1,8 +1,7 @@
 const initialState = {
-  budget: '320',
   expenses: [
     { id: 1, 
-      title: 'Shopping', 
+      title: 'Food', 
       amount: 850, 
       activity: 'expense',
       date: new Date().toLocaleString(),

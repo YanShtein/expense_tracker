@@ -3,11 +3,11 @@ import initialState from "./initialState";
 
 const AppReducer = (state, action) => {
   switch (action.type) {
-    case 'ADD_EXPENSE':
+    case 'ADD_TRANSACTION':
       return {
         ...state,
         expenses: [...state.expenses, action.payload],
-      };
+      }
     case 'DELETE_EXPENSE':
       return {
         ...state,
@@ -25,7 +25,6 @@ export const AppProvider = ({ children }) => {
 
   return (
     <AppContext.Provider value={{
-        budget: state.budget,
         expenses: state.expenses,
         dispatch
       }}>

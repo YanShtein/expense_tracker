@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
 
+:root {
+  --blue: #1091e7;
+  --grey: rgb(222, 222, 222);
+}
+
 body {
   margin: 0;
   font-family: 'Poppins' ,-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -9,26 +14,30 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-h3, p {
+a {
+  text-decoration: none;
+  color: var(--blue);
+}
+
+h3 {
   margin: 0;
   padding: 10px 0;
   text-align: left;
-  border-bottom: 2px solid rgb(222, 222, 222);
+  border-bottom: 2px solid var(--grey);
 }
 
 h2 {
   text-align: center;
-  height: 60px;
+  margin: 35px;
+  letter-spacing: 2px;
 }
 
-h4 {
+h4, p {
   margin: 0;
   padding: 0;
 }
 
 .container {
-  /* height: 100vh;
-  width: 100%; */
   display: flex;
   justify-content: center;
 }
@@ -39,15 +48,15 @@ h4 {
   justify-content: space-evenly;
 }
 
-/*-----Balanace-----*/
+/*-----Balance-----*/
 .balance {
-  margin: 60px 0;
+  margin-bottom: 30px;
   display: flex;
   flex-direction: column;
 }
 
-.budget {
-  font-size: 22px;
+.balanceVal {
+  font-size: 24px;
 }
 
 .income-expense {
@@ -55,8 +64,7 @@ h4 {
   display: flex;
   flex-direction: row;
   border-radius: 4px;
-  width: 100%;
-  border: 1px solid rgb(222, 222, 222);
+  border: 1px solid var(--grey);
 }
 
 .income-expense div {
@@ -66,7 +74,7 @@ h4 {
 }
 
 .income-expense div:nth-child(1) {
-  border-right: 1px solid rgb(222, 222, 222);
+  border-right: 1px solid var(--grey);
 }
 
 .red {
@@ -84,13 +92,12 @@ h4 {
 /*-----History-----*/
 
 .history {
-  margin-bottom: 60px;
+  margin-bottom: 30px;
 }
 
 .history_list {
   font-size: 14px;
-  width: 350px;
-  padding: 10px;
+  padding: 10px 0;
 }
 
 .history-item {
@@ -108,7 +115,7 @@ h4 {
 }
 
 .title-date span:nth-child(2) {
-  color: #aaaaaa;
+  color: rgb(201 201 201);
 }
 
 .amount {
@@ -125,11 +132,19 @@ h4 {
   width: 22px;
 }
 
-.history button:hover {
+.history button:active {
   transform: scale(0.9);
 }
 
+svg {
+  fill: var(--blue);
+}
+
 /*-----Form-----*/
+
+.add-expense {
+  margin-bottom: 30px;
+}
 
 form {
   display: flex;
@@ -140,15 +155,31 @@ form {
 input,
 select {
   cursor: pointer;
-  margin: 5px;
-  border: 1px solid rgb(222, 222, 222);
+  margin: 5px 0;
+  border: 1px solid var(--grey);
   font-size: 18px;
   padding: 5px 10px;
+  border-radius: 1px;
 }
 
 .add-expense button {
+  margin-top: 10px;
+  color: white;
+  font-weight: 600;
+  border: none;
   font-size: 14px;
   font-family: inherit;
   cursor: pointer;
   padding: 5px;
+  border-radius: 1px;
+  background-color: var(--blue);
+}
+
+.add-expense button:active {
+  transform: scale(0.98);
+}
+
+footer {
+  text-align: center;
+  margin: 30px;
 }

@@ -5,7 +5,7 @@ const shortid = require('shortid');
 export default function ExpenseForm() {
   const [title, setTitle] = useState('');
   const [amount, setAmount] = useState('');
-  const [activity, setActivity] = useState();
+  const [activity, setActivity] = useState('');
   const { dispatch } = useContext(AppContext);
   
   function onSubmit(e) { 
@@ -19,7 +19,7 @@ export default function ExpenseForm() {
     };
 
     dispatch({
-      type: 'ADD_EXPENSE',
+      type: 'ADD_TRANSACTION',
       payload: expense,
     });
 
@@ -34,7 +34,7 @@ export default function ExpenseForm() {
 
   return (
     <div className="add-expense">
-      <h3>Add expense</h3>
+      <h3>Create transaction</h3>
       <form onSubmit={onSubmit}>
         <input 
           placeholder="Title"
@@ -53,9 +53,9 @@ export default function ExpenseForm() {
         <select name="activity" onChange={e => setActivity(e.target.value)} required>
           <option value="">Expense / Income</option>
           <option value="expense">- Expense</option>
-          <option value="income">+ Incomse</option>
+          <option value="income">+ Income</option>
         </select>
-        <button type="submit">Create expense</button>
+        <button type="submit">Add transaction</button>
       </form>
     </div>
   )

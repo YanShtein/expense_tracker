@@ -12,6 +12,10 @@ function ExpenseTracker() {
         <Balance />
         <History />
         <ExpenseForm />
+        <footer>
+          <small>Designed & Built by 
+          <a href="https://github.com/YanShtein/" target="_blank" rel="noreferrer"> Yan Shtein</a></small>
+        </footer>
       </div>
     </div>
   );
